@@ -1,8 +1,8 @@
 import "./Setup.css"
-import { useEffect, useState, type JSX } from 'react'
+import { type JSX } from 'react'
 
 function Setup(): JSX.Element {
-    const [batteries, setBatteries] = useState(-1)
+    // const [batteries, setBatteries] = useState(-1)
 
     return (
         <div className="SetupDiv">

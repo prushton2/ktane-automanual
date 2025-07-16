@@ -1,4 +1,4 @@
-import { useState, type JSX } from 'react'
+import { type JSX } from 'react'
 import './App.css'
 import Wires from './components.tsx/Wires'
 import Setup from './components.tsx/Setup'
@@ -9,7 +9,7 @@ interface ComponentInfo {
 }
 
 function App() {
-  const [selection, setSelection] = useState(0)
+  // const [selection, setSelection] = useState(0)
 
   const components: ComponentInfo[] = [
     {
@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      {components.map((e, i) => {
+      {components.map((e) => {
         return <div className='modDiv'>
           <label className='modName'>{e.name}</label>
           {e.component}
