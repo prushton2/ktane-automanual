@@ -1,8 +1,6 @@
 import "./SimonSays.css"
 import "../global.css";
 import { useEffect, useState, type JSX } from 'react';
-import type { Indicators } from "./Setup";
-import { colors } from "../global";
 
 interface AnswerMap {
     Red: string,
