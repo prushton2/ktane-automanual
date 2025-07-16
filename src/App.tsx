@@ -1,7 +1,8 @@
 import { useState, type JSX } from 'react'
 import './App.css'
 import Wires from './components.tsx/Wires'
-import Setup from './components.tsx/Setup'
+import Setup, { type Indicators } from './components.tsx/Setup'
+import Button from './components.tsx/Button'
 
 interface ComponentInfo {
   name: string
@@ -11,22 +12,27 @@ interface ComponentInfo {
 function App() {
     const [batteries, setBatteries] = useState(-1)
     const [serialNumber, setSerialNumber] = useState("")
+    const [indicators, setIndicators] = useState({} as Indicators)
 
   const components: ComponentInfo[] = [
     {
       name: "Setup",
-      component: <Setup onChange={(b, s) => {setBatteries(b), setSerialNumber(s)}} />
+      component: <Setup onChange={(b, s, i) => {setBatteries(b), setSerialNumber(s), setIndicators(i)}} />
     },
     {
       name: "Wires",
       component: <Wires serialNumber={serialNumber} />
+    },
+    {
+      name: "Button",
+      component: <Button batteries={batteries} indicators={indicators}/>
     }
   ]
 
   return (
     <>
-      {components.map((e) => {
-        return <div className='modDiv'>
+      {components.map((e, i) => {
+        return <div key={`components[${i}]`} className='modDiv'>
           <label className='modName'>{e.name}</label>
           {e.component}
         </div>

@@ -1,4 +1,5 @@
 import "./Wires.css"
+import "../global.css"
 import { useEffect, useState, type JSX } from 'react'
 
 function Wires({serialNumber}: {serialNumber: string}): JSX.Element {
@@ -20,9 +21,10 @@ function Wires({serialNumber}: {serialNumber: string}): JSX.Element {
         let colors: string[] = ["Red", "Green", "Blue", "Yellow", "White", "Black"]
 
         for (let i = 0; i < 6; i++) {
-            wiresElement[i] = <div className="WireButtonRow">
+            wiresElement[i] = <div key={`wires.colors.row[${i}]`} className="WireButtonRow">
                 {colors.map((e) => {
                     return <button
+                        key={`wires.colors.row[${i}].${e}`}
                         className={`WireButton ${e == realWires[i] ? e : "Empty"}`}
                         onClick={() => {
                             let newWires = [...realWires];
