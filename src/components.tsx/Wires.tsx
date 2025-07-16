@@ -1,7 +1,7 @@
 import "./Wires.css"
 import { useEffect, useState, type JSX } from 'react'
 
-function Wires(): JSX.Element {
+function Wires({serialNumber}: {serialNumber: string}): JSX.Element {
     const [realWires, setRealWires] = useState<string[]>(["Empty", "Empty", "Empty", "Empty", "Empty", "Empty"])
     const [wires, setWires] = useState<string[]>([])
 
@@ -43,25 +43,56 @@ function Wires(): JSX.Element {
     }
 
     function solve(): string {
+        let last = wires.length-1
+        let serialEndsOdd = parseInt(serialNumber[serialNumber.length-1])%2 == 1
         switch (wires.length) {
             case 3:
                 if(wires.indexOf("Red") == -1) {
                     return "Cut the second wire"
                 }
-                if(wires[-1] == "White") {
+                if(wires[last] == "White") {
                     return "Cut the last wire"
                 }
                 if(getOccurrence(wires, "Blue") > 1) {
                     return "Cut the last blue wire"
                 }
                 return "Cut the last wire"
-            break;
             case 4:
-            break;
+                if(getOccurrence(wires, "Red") > 1 && serialEndsOdd) {
+                    return "Cut the last red wire"
+                }
+                if(wires[last] == "Yellow" && getOccurrence(wires, "Red") == 0) {
+                    return "Cut the first wire"
+                }
+                if(getOccurrence(wires, "Blue") == 1) {
+                    return "Cut the first wire"
+                }
+                if(getOccurrence(wires, "Yellow") > 1) {
+                    return "Cut the last wire"
+                }
+                return "Cut the second wire"
             case 5:
-            break;
+                if(wires[last] == "Black" && serialEndsOdd) {
+                    return "Cut the fourth wire"
+                }
+                if(getOccurrence(wires, "Red") == 1 && getOccurrence(wires, "Yellow") > 1) {
+                    return "Cut the first wire"
+                }
+                if(getOccurrence(wires, "Black") == 0) {
+                    return "Cut the second wire"
+                }
+                return "Cut the first wire"
             case 6:
-            break;
+                if(getOccurrence(wires, "Yellow") == 0 && serialEndsOdd) {
+                    return "Cut the third wire"
+                }
+                if(getOccurrence(wires, "Yellow") == 1 && getOccurrence(wires, "White") >1) {
+                    return "Cut the fourth wire"
+                }
+                if(getOccurrence(wires, "Red") == 0) {
+                    return "Cut the last wire"
+                }
+                return "Cut the fourth wire"
         }
 
         return "Unknown"

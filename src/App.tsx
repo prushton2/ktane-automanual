@@ -1,4 +1,4 @@
-import { type JSX } from 'react'
+import { useState, type JSX } from 'react'
 import './App.css'
 import Wires from './components.tsx/Wires'
 import Setup from './components.tsx/Setup'
@@ -9,16 +9,17 @@ interface ComponentInfo {
 }
 
 function App() {
-  // const [selection, setSelection] = useState(0)
+    const [batteries, setBatteries] = useState(-1)
+    const [serialNumber, setSerialNumber] = useState("")
 
   const components: ComponentInfo[] = [
     {
       name: "Setup",
-      component: <Setup />
+      component: <Setup onChange={(b, s) => {setBatteries(b), setSerialNumber(s)}} />
     },
     {
       name: "Wires",
-      component: <Wires />
+      component: <Wires serialNumber={serialNumber} />
     }
   ]
 
