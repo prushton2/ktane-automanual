@@ -2,6 +2,7 @@ import "./Button.css";
 import "../global.css";
 import { useEffect, useState, type JSX } from 'react';
 import type { Indicators } from "./Setup";
+import { colors } from "../global";
 
 function Button({ batteries, indicators }: { batteries: number, indicators: Indicators }): JSX.Element {
     const [label, setLabel] = useState("")
@@ -13,7 +14,6 @@ function Button({ batteries, indicators }: { batteries: number, indicators: Indi
     }, [label, color, strip])
 
     const labels: string[] = ["Abort", "Detonate", "Hold", "Other"]
-    const colors: string[] = ["Red", "Green", "Blue", "Yellow", "White", "Black"]
 
     function solve(): string {
         function solveStrip(color: string): string {
@@ -56,7 +56,10 @@ function Button({ batteries, indicators }: { batteries: number, indicators: Indi
 
         if (color == "Yellow") {
             return releaseHeldStrip()
+        }
 
+        if (color == "Red" && label == "Hold") {
+            return "Press and immediately release the button"
         }
 
         return releaseHeldStrip()

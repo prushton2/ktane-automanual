@@ -1,0 +1,109 @@
+.SSComponent {
+    display: flex;
+    margin: 10px;
+    flex-direction: row;
+    
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+}
+
+.SSStrikeSelect {
+    display: flex;
+    flex-direction: row;
+    height: min-content;
+}
+
+.SSStrikeLabel {
+    display: flex;
+    align-items: center;
+}
+
+.SSStrikeButton {
+    background-color: var(--bg-light);
+    color: var(--text);
+    border: none;
+    border-radius: 2px;
+    margin: 2px;
+    padding: 10px;
+    height: min-content;
+}
+
+.SSStrikeSelected {
+    background-color: var(--red);
+}
+
+.SSButtonPanelDiv {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    @media (max-width: 600px) {
+        flex-direction: row;
+    }
+}
+
+.SSButtonPanel {
+    transform: rotate(45deg);
+}
+
+.SSButtonPanel2 {
+    display: flex;
+    flex-direction: row;
+}
+
+.SSButton {
+    border: none;
+    border-radius: 2px;
+    margin: 2px;
+    padding: 30px;
+}
+
+.SSButtonRed {
+    background-color: var(--red);
+}
+
+.SSButtonGreen {
+    background-color: var(--green);
+}
+
+.SSButtonBlue {
+    background-color: var(--blue);
+}
+
+.SSButtonYellow {
+    background-color: var(--yellow);
+}
+
+.SSButtonRed:active {
+    background-color: var(--red-dark);
+}
+
+.SSButtonGreen:active {
+    background-color: var(--green-dark);
+}
+
+.SSButtonBlue:active {
+    background-color: var(--blue-dark);
+}
+
+.SSButtonYellow:active {
+    background-color: var(--yellow-dark);
+}
+
+.SSAnswerDiv {
+    display: flex;
+    flex-direction: row;
+    flex-basis: 0%;
+    flex-grow: 12;
+
+    height: 50px;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+}
+
+.SSAnswer {
+    padding: 20px;
+    margin: 2px;
+}

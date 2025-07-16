@@ -61,15 +61,13 @@ function Symbols(): JSX.Element {
         ]
     ]
 
-
-
-
     return <div className="SymbolsDiv">
-        {symbols.map((e) => {
-            return <div className="SymbolColumn">
-                {e.map((i) => {
+        {symbols.map((e, index) => {
+            return <div key={`symbols.column[${index}]`} className="SymbolColumn">
+                {e.map((i, symIndex) => {
                     let key = parseInt(i)
                     return <img
+                        key={`symbols[${index}][${symIndex}]`}
                         onClick={() => setHighlightedSymbols({
                             ...highlightedSymbols,
                             [key]: !highlightedSymbols[key as keyof HightlightedSymbols]

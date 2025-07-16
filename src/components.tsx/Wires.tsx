@@ -1,6 +1,7 @@
 import "./Wires.css"
 import "../global.css"
 import { useEffect, useState, type JSX } from 'react'
+import { colors } from "../global";
 
 function Wires({serialNumber}: {serialNumber: string}): JSX.Element {
     const [realWires, setRealWires] = useState<string[]>(["Empty", "Empty", "Empty", "Empty", "Empty", "Empty"])
@@ -18,7 +19,6 @@ function Wires({serialNumber}: {serialNumber: string}): JSX.Element {
 
     function renderWires(): JSX.Element[] {
         let wiresElement: JSX.Element[] = []
-        let colors: string[] = ["Red", "Green", "Blue", "Yellow", "White", "Black"]
 
         for (let i = 0; i < 6; i++) {
             wiresElement[i] = <div key={`wires.colors.row[${i}]`} className="WireButtonRow">

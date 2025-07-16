@@ -4,6 +4,7 @@ import Wires from './components.tsx/Wires'
 import Setup, { type Indicators } from './components.tsx/Setup'
 import Button from './components.tsx/Button'
 import Symbols from './components.tsx/Symbols'
+import SimonSays from './components.tsx/SimonSays'
 
 interface ComponentInfo {
   name: string
@@ -31,6 +32,10 @@ function App() {
     {
       name: "Symbols",
       component: <Symbols />
+    },
+    {
+      name: "Simon Says",
+      component: <SimonSays serialNumber={serialNumber} />
     }
   ]
 
@@ -41,9 +46,7 @@ function App() {
           <label className='modName'>{e.name}</label>
           {e.component}
         </div>
-      })
-
-      }
+      })}
     </>
   )
 }
