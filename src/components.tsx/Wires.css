@@ -1,0 +1,43 @@
+.WireComponent {
+
+}
+
+.WireButtons {
+    display: flex;
+    flex-direction: column;
+}
+
+.WireButtonRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.WireButton {
+    background-color: var(--bg-light);
+    border: none;
+    border-radius: 2px;
+    margin: 2px;
+    padding: 10px;
+}
+
+.Red {
+    background-color: var(--red);
+}
+.Green {
+    background-color: var(--green);
+}
+.Blue {
+    background-color: var(--blue);
+}
+.Yellow {
+    background-color: var(--yellow);
+}
+.White {
+    background-color: var(--white);
+}
+.Black {
+    background-color: var(--black);
+}
+.Empty {
+    background-color: var(--bg-light);
+}

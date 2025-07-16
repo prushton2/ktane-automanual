@@ -1,0 +1,24 @@
+.SetupDiv {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+}
+.SetupElement {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+input {
+    background-color: var(--bg-light);
+    border: 3px solid var(--bg-dark);
+    /* Hide number input spinners */
+    &[type="number"]::-webkit-inner-spin-button,
+    &[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    &[type="number"] {
+        -moz-appearance: textfield;
+    }
+}
