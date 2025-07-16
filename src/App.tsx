@@ -3,6 +3,7 @@ import './App.css'
 import Wires from './components.tsx/Wires'
 import Setup, { type Indicators } from './components.tsx/Setup'
 import Button from './components.tsx/Button'
+import Symbols from './components.tsx/Symbols'
 
 interface ComponentInfo {
   name: string
@@ -26,6 +27,10 @@ function App() {
     {
       name: "Button",
       component: <Button batteries={batteries} indicators={indicators}/>
+    },
+    {
+      name: "Symbols",
+      component: <Symbols />
     }
   ]
 
