@@ -3,6 +3,11 @@
     flex-direction: row;
     padding-left: 100px;
     padding-right: 100px;
+    
+    @media (max-width: 600px) {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
 
 .SymbolColumn {
@@ -10,14 +15,24 @@
     flex-direction: column;
     flex-grow: 1;
     align-items: center;
+    padding-bottom: 5px;
 }
 
 .SymbolImage {
+    
     background-color: var(--bg-light);
     border-radius: 5px;
     margin: 5px;
+
     width: 80px;
-    height: 80px;
+    
+    @media (max-width: 600px) {
+        display: flex;
+        flex-grow: 1;
+        flex-basis: 0%;
+    
+        width: 80%;
+    }
 }
 
 .SymbolClicked {

@@ -1,6 +1,6 @@
-/* .WireComponent {
-
-} */
+.WireComponent {
+    margin: 10px;    
+}
 
 .WireButtons {
     display: flex;
@@ -10,6 +10,7 @@
 .WireButtonRow {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .WireButton {

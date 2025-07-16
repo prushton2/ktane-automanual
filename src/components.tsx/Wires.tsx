@@ -105,6 +105,7 @@ function Wires({serialNumber}: {serialNumber: string}): JSX.Element {
             <div className="WireButtons">
                 {renderWires()}
             </div>
+            <br />
             <label>{solve()}</label>
         </div>
     );
